@@ -17,7 +17,7 @@ public class MyWebApplicationInitializer implements WebApplicationInitializer {
         AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();
         context.register(WebConfig.class);
 
-        DispatcherServlet servlet = new DispatcherServlet(context);
+        DispatcherServlet servlet = new DispatcherServlet(context); // ApplicationContext를 생성자로하여 가지고 있다.
         ServletRegistration.Dynamic registration = servletContext.addServlet("dispatcherServlet", servlet);
         registration.setLoadOnStartup(1);
         registration.addMapping("/");
