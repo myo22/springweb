@@ -17,11 +17,14 @@ public class AppConfig {
     @Autowired // Autowired만 넣어주면 = 스프링이 객체를 초기화한다;
     private Environment env; // ket, value <- persistence-mysql.properties 정보가 들어가 있다.
 
+    // DataSource는 커넥션 풀이라고도 한다.
     // 데이터베이스 접속과 관련된 객체(DataSource)를 만들어준다.
     // DataSource는 인터페이스이다.
     // persistence-mysql.properties에 있는 정보를 이용해 객체를 만든다.
     @Bean
     public DataSource dataSource(){
+        System.out.println("jdbc.driverClassName");
+        System.out.println(env.getProperty("jdbc.driverClassName"));
         final DriverManagerDataSource dataSource = new DriverManagerDataSource(); // DataSource 구현체
         dataSource.setDriverClassName(env.getProperty("jdbc.driverClassName"));
         dataSource.setUrl(env.getProperty("jdbc.url"));

@@ -1,12 +1,18 @@
 package com.example.springweb.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import javax.sql.DataSource;
 import java.io.IOException;
 
 @Controller
 public class HelloController {
+
+//    @Autowired
+//    DataSource dataSource; 스프링이 Bean으로 관리하는 객체는 Autowired만 넣어주면 자동으로 넣을 수 있다.
+
     @GetMapping("/hello") // /hello 요청이 오면 해당 메소드를 실행하라.
     // 이해를 돕기위해 서블릿과 유사하게 만든거지 스프링에서 이렇게 사용하지 않는다.
     public String hello() throws IOException {
