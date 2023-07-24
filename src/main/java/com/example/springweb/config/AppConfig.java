@@ -24,9 +24,9 @@ import java.util.Properties;
 //@Configuration
 @EnableTransactionManagement
 @ComponentScan(basePackages = {"com.example"},
-        includeFilters = { @ComponentScan.Filter(Service.class),
+        includeFilters = {@ComponentScan.Filter(Service.class),
                 @ComponentScan.Filter(Repository.class)})
-@EnableJpaRepositories(basePackages = "com.example.springweb.repository")
+@EnableJpaRepositories(basePackages = {"com.example.springweb.repository"})
 @PropertySource({"classpath:persistence-mysql.properties"})
 public class AppConfig {
     // 의존성 주입과 관련된 어노테이션
