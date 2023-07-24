@@ -1,5 +1,7 @@
 package com.example.springweb.controller;
 
+import com.example.springweb.service.ToDoService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,7 +10,9 @@ import javax.sql.DataSource;
 import java.io.IOException;
 
 @Controller
+@RequiredArgsConstructor
 public class HelloController {
+    private final ToDoService toDoService;
 
 //    @Autowired
 //    DataSource dataSource; 스프링이 Bean으로 관리하는 객체는 Autowired만 넣어주면 자동으로 넣을 수 있다.
@@ -18,6 +22,12 @@ public class HelloController {
     public String hello() throws IOException {
         // 로직을 수행.
         return "hello"; // hello.jsp가 되기를 원한다. -> hello.jsp로 포워딩.
+    }
+
+    @GetMapping("/add")
+    public String add() throws Exception {
+        toDoService.addToDo();
+        return "add";
     }
 }
 
