@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
+import java.util.List;
 
 
 @Service
@@ -14,14 +15,19 @@ import java.util.Date;
 public class ToDoService {
     private final ToDoRepository toDoRepository; // final은 생성자에서 초기화 해야지 사용가능.
 
+    @Transactional(readOnly = true) // 해당 메소드에서는 조회만 한다.
+    public List<ToDo> getToDoList(){
+        return toDoRepository.findAll();
+    }
+
 //    public ToDoService(ToDoRepository toDoRepository) {
 //        this.toDoRepository = toDoRepository;
 //    }
 
     @Transactional // 트랜잭션 단위로 동작한다.
-    public void addToDo(){
-        ToDo todo = new ToDo();
-        todo.setTodo("hello" + new Date().toString());
-        toDoRepository.save(todo);
+    public void addToDo(String todo){
+        ToDo toDo = new ToDo();
+        toDo.setTodo(todo);
+        toDoRepository.save(toDo);
     }
 }

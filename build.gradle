@@ -38,6 +38,8 @@ dependencies {
 
     implementation group: 'org.springframework', name: 'spring-webmvc', version: '5.3.23'
 
+    // jsp에서 jstl 즉 태그를 이용할 수 있다.
+    implementation group: 'jstl', name: 'jstl', version: '1.2'
     compileOnly('javax.servlet:javax.servlet-api:4.0.1')
     compileOnly "javax.servlet.jsp:javax.servlet.jsp-api:2.3.2-b02"
     compileOnly "javax.el:javax.el-api:3.0.1-b04"

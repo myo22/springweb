@@ -24,11 +24,11 @@ public class HelloController {
         return "hello"; // hello.jsp가 되기를 원한다. -> hello.jsp로 포워딩.
     }
 
-    @GetMapping("/add")
-    public String add() throws Exception {
-        toDoService.addToDo();
-        return "add";
-    }
+//    @GetMapping("/add")
+//    public String add() throws Exception {
+//        toDoService.addToDo();
+//        return "add";
+//    }
 }
 
 // URL을 처리하는 컨트롤러의 메소드가 hello를 리턴하면 hello.jsp로 포워딩하고 싶다.
