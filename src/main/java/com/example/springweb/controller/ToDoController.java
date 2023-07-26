@@ -15,7 +15,7 @@ import java.util.List;
 // 결과를 만들어서 view(jsp)에게 전달한다.
 // http://localhost:8080/todos
 @Controller
-@RequestMapping("todos")
+@RequestMapping("/todos")
 @RequiredArgsConstructor // final 필드만 초기화하는 생성자가 자동으로 만들어진다. Spring이 생성자 주입을 한다.
 public class ToDoController {
 
